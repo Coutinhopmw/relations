@@ -13,9 +13,13 @@ class UserController extends Controller
     }
 
     public function findOne(Request $r){
-
         $user = User::find($r->id);        
+        return $user;
+    }
 
+    public function insert(Request $r){
+        $rawData = $r->only(['name','email','password']);
+        $user = User::create($rawData);
         return $user;
     }
 
