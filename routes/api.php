@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +22,8 @@ Route::post('/',[UserController::class,'insert']);
 //Cadastrar um novo endereço
 
 Route::post('/addresses',[AddressController::class, 'insert']);
+
+//Invoices
+Route::get('/invoices',[InvoiceController::class,'index']);
+Route::post('/invoices',[InvoiceController::class,'createInvoice']);
+Route::get('/invoices{id}',[InvoiceController::class,'findOne']);
